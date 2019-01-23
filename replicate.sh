@@ -10,9 +10,15 @@ openssl ecparam -genkey -name secp384r1 -out server.key
 
 
 # Generate X509 keys
-openssl req -new -x509 -sha256 -key server.key -out server.crt -days 3650
+openssl req -nodes -new -x509 -sha256 -key server.key -out server.crt -days 3650
 
 
+# Move certificates to ssl folder and rename to domain
+CERT_PATH=/etc/ssl/relayd
+mkdir -p $CERT_PATH
+
+cp server.crt $CERT_PATH/127.0.0.1.crt
+cp server.key $CERT_PATH/127.0.0.1.key
 
 
 
