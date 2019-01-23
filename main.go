@@ -12,10 +12,18 @@ func HelloServer(w http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-    fmt.Printf("Server started on localhost:443")
+    tlsHost := "localhost:8443"
+    host := "localhost:443"
+    fmt.Printf("Server started on " + host)
+    fmt.Printf("Server started on " + tlsHost)
     http.HandleFunc("/", HelloServer)
-    err := http.ListenAndServeTLS("localhost:443", "server.crt", "server.key", nil)
+    err := http.ListenAndServe(host, nil)
+    tlsErr := http.ListenAndServeTLS(tlsHost, "server.crt", "server.key", nil)
     if err != nil {
         log.Fatal("ListenAndServe: ", err)
     }
+    if tlsErr != nil {
+        log.Fatal("ListenAndServe: ", tlsErr)
+    }
+
 }
