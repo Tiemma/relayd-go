@@ -11,7 +11,8 @@ Server started on localhost:9443 - TLS
 ```
 
 You can proceed and start the relayd server using:
- relayd -d --vv -f relayd.conf
+ 
+> relayd -d --vv -f relayd.conf
 
 Debug logs as such shoulw be seen 
 ```
@@ -42,4 +43,5 @@ host 127.0.0.1, check http code (5ms,http code ok), state unknown -> up, availab
 
 ```
 
+Currently debugging TLS issues on port 9443
 
