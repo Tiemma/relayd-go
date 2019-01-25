@@ -43,3 +43,21 @@ host 127.0.0.1, check http code (5ms,http code ok), state unknown -> up, availab
 ```
 
 
+Certificate imports should likewie follow this format
+
+```
+
+/etc/ssl/address.crt
+     
+/etc/ssl/address:port.crt
+     
+/etc/ssl/private/address.key
+     
+/etc/ssl/private/address:port.key
+    Location of the relay TLS server certificates, where address is the configured IP 
+address and port is the configured port number of the relay.
+
+/etc/ssl/cert.pem
+    Default location of the CA bundle that can be used with relayd(8).
+
+```
