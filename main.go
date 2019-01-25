@@ -14,8 +14,8 @@ func HelloServer(w http.ResponseWriter, req *http.Request) {
 func main() {
     tlsHost := "localhost:9443"
     host := "localhost:8443"
-    fmt.Printf("Server started on " + host)
-    fmt.Printf("Server started on " + tlsHost)
+    fmt.Println("HTTP: Server started on " + host)
+    fmt.Println("HTTPS: Server started on " + tlsHost)
     http.HandleFunc("/", HelloServer)
     err := http.ListenAndServe(host, nil)
     tlsErr := http.ListenAndServeTLS(tlsHost, "server.crt", "server.key", nil)
