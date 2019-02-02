@@ -10,10 +10,27 @@ Server started on localhost:9443 - TLS
 
 ```
 
-You can proceed and start the relayd server using:
- relayd -d --vv -f relayd.conf
 
-Debug logs as such shoulw be seen 
+## Things to consider before deploying 
+
+
+### Certificates 
+Relayd loads its certificates for tls relay forwarding from the /etc/ssl path described 
+above.
+
+Currently the crt and key need to be named as server.crt and server.key for the script 
+#[certs.sh](certs.sh) to work.
+
+Once this is done, you should see the certs listed in the final prompts
+
+```bash
+ksh certs.sh
+```
+
+You can proceed and start the relayd server using:
+ relayd -d -vv -f relayd.conf
+
+Debug logs as such should be seen 
 ```
 startup
 pfe: filter init done
@@ -61,3 +78,7 @@ address and port is the configured port number of the relay.
     Default location of the CA bundle that can be used with relayd(8).
 
 ```
+
+
+
+
