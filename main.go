@@ -12,8 +12,8 @@ func HelloServer(w http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-    tlsHost := "localhost:9443"
-    host := "localhost:8443"
+    tlsHost := "localhost:8443"
+    host := "localhost:9443"
     fmt.Println("HTTP: Server started on " + host)
     fmt.Println("HTTPS: Server started on " + tlsHost)
     http.HandleFunc("/", HelloServer)
