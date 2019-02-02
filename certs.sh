@@ -27,8 +27,8 @@ mkdir -p $CERT_PATH
 mkdir -p $CERT_PATH/private
 
  cat server.crt server.key > server.includesprivatekey.pem
- cp server.crt $CERT_PATH/$1:$2.crt
- cp server.key $CERT_PATH/private/$1:$2.key 
+ cp server.crt $CERT_PATH/$ADDRESS:$TLS_PORT.crt
+ cp server.key $CERT_PATH/private/$ADDRESS:$TLS_PORT.key
 # cp server.includesprivatekey.pem $CERT_PATH/cert.pem
 
 
